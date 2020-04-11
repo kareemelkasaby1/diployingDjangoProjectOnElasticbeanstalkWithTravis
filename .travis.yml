@@ -15,5 +15,5 @@ after_sucess:
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
-  - docker push kareemelkasaby/Crowd_Funding_Webapp
+  - docker push kareemelkasaby/crowd_funding_webapp
   - docker push kareemelkasaby/django_project_nginx
