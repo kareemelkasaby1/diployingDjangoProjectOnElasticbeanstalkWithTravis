@@ -7,7 +7,7 @@ berfore_install:
   - ls
 
 script:
-  - echo "Leeeh ya nosa takly El moza"
+  - echo "Leeeh ya nosa tedrabe loza"
 
 after_sucess:
   - docker build -t kareemelkasaby/crowd_funding_webapp ./crowd_funding_webapp
