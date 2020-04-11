@@ -13,4 +13,7 @@ after_sucess:
   - docker kareemelkasaby/Crowd_Funding_Webapp ./Crowd_Funding_Webapp
   - docker kareemelkasaby/django_project_nginx ./nginx
 
-  - echo 
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+
+  - docker push kareemelkasaby/Crowd_Funding_Webapp
+  - docker push kareemelkasaby/django_project_nginx
