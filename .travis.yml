@@ -10,8 +10,8 @@ script:
   - echo "Leeeh ya nosa takly El moza"
 
 after_sucess:
-  - docker build kareemelkasaby/Crowd_Funding_Webapp ./Crowd_Funding_Webapp
-  - docker build kareemelkasaby/django_project_nginx ./nginx
+  - docker build -t kareemelkasaby/Crowd_Funding_Webapp ./Crowd_Funding_Webapp
+  - docker build -t kareemelkasaby/django_project_nginx ./nginx
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
