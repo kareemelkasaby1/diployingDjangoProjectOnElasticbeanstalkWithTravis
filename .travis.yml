@@ -1,0 +1,16 @@
+sudo: required
+
+services: 
+  - docker
+
+berfore_install:
+  - ls
+
+script:
+  - echo "Leeeh ya nosa takly El moza"
+
+after_sucess:
+  - docker kareemelkasaby/Crowd_Funding_Webapp ./Crowd_Funding_Webapp
+  - docker kareemelkasaby/django_project_nginx ./nginx
+
+  - echo 

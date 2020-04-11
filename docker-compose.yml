@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+  crowd_funding_webapp:
+    build: ./Crowd_Funding_Webapp
+    expose:
+      - "8000"
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - '80:80'
+  

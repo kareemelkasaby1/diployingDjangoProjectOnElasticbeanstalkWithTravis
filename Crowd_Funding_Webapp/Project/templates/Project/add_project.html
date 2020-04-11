@@ -1,0 +1,49 @@
+
+   {% extends "Project/index.html" %}
+   {% load bootstrap4 %} 
+   {% bootstrap_messages %} 
+   {% block title %}Add Project{% endblock %}
+   {%block page_name %}Add Project{% endblock %}
+   {% block addproject %}current-menu-item{% endblock %}
+
+   {% block body %}
+                <div class="col-12 col-lg-5">
+                    <div class="entry-content">
+                        <h2>How to add one ?</h2>
+
+                        <p>just follow the next steps</p>
+
+                        <ul class="contact-social d-flex flex-wrap align-items-center">
+                            <li><a href="#">1- Write a title that is more than 5 charchters</a></li>
+                            <li><a href="#">2-Total target should be more than 1000$</a></li>
+                            <li><a href="#">3-Date should be written in ther form of "month/day/year" ex "01/01/2020"</a></li>
+                            <li><a href="#">4-End date should be later date of than the start date</i></a></li>
+                            <li><a href="#">5-tags should be seprated wth ","</a></li>
+                        </ul>
+
+                    </div>
+                </div><!-- .col -->
+
+                <div class="col-12 col-lg-7">
+                    <form class="contact-form" action="addproject" method="post"><input type='hidden'/> 
+                        {%csrf_token %} 
+                        {% bootstrap_form form %}  
+
+
+                        <span>
+                            <input class="btn gradient-bg" type="submit" value="Save Project">
+                        </span>
+                    </form><!-- .contact-form -->
+
+                </div><!-- .col -->
+         
+<!----------------------------------------------->
+
+                
+
+
+
+    {% endblock %}
+{% block js %}
+
+{% endblock %}

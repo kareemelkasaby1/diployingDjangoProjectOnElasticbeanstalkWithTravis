@@ -1,0 +1,105 @@
+{% extends "users_auth/index.html" %}
+{% block title %}Categories{% endblock %}
+{% block category %}active{% endblock %}
+{% block css %}
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+{% endblock%}
+{% block pagetitle %}
+Categories Table
+{% endblock%}
+
+{% block body_block %}
+<div class="col-12">
+   
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Categories</h3>
+        
+      </div>
+      <!-- /.card-header -->
+      <div class="card">
+        <div class="card-header">Add Category</div>
+        <div class="card-body">
+            <form method="POST" action="/admins/addcategory/">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="catName" id="catName">
+                  </div>
+                  <div class="col-md-12 text-center"> 
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 90px;">Add</button>
+                  </div>
+                 
+            </form>    
+        </div>
+    </div>
+      <div class="card-body">
+
+        <table id="example1" class="table table-striped" cellspacing="0" width="100%">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+              {% for category in categories %}
+          <tr>
+            <td>{{category.id}}</td>
+            <td>{{category.title}}</td>
+            <td style="float: right;">
+              <form action="/users_auth/{{ category.id }}/deletecategory/" method="POST">
+                <button type="submit" style=" background-color: transparent;border: none;">
+                    {% csrf_token %}
+                <span class="right badge badge-danger">
+                
+                  <i style="font-size:24px">X</i> 
+                </span>
+            </button>
+            </form>
+                
+            </td>
+          </tr>
+          {% endfor %}
+         
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>ID</th>
+            <th>Category Name</th>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+{% endblock %}
+{% block js %}
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/static/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+      });
+    });
+  </script>
+{% endblock %}

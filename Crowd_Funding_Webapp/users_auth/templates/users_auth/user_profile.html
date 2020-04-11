@@ -1,0 +1,129 @@
+<!-- Default form register -->
+{% extends "Project/index.html" %}
+{% load bootstrap4 %}
+{% bootstrap_messages %}
+
+{% block title %}Profile{% endblock %}
+{% block profile %}current-menu-item{% endblock %}
+{% block pageHeader %} style="margin: 0 0 60px 0" {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+  .wrap
+  {
+      padding-top: 30px;
+  }
+
+  .glyphicon
+  {
+      margin-bottom: 10px;
+      margin-right: 10px;
+  }
+
+  small
+  {
+      display: block;
+      color: #888;
+  }
+
+  .well
+  {
+      border: 1px solid blue;
+  }
+</style>
+{% endblock %}
+
+{%block page_name %}User Profile{% endblock %}
+
+
+{% block body %}
+<div id="user-profile-2" class="user-profile">
+  <div class="tabbable">
+    <ul class="nav nav-tabs padding-18">
+      <li class="active">
+        <a data-toggle="tab" href="#home">
+          Profile
+        </a>
+      </li>
+
+      <li>
+        <a data-toggle="tab" href="/users_auth/edit_user_profile/">
+          edit Profile
+        </a>
+      </li>
+
+      <li>
+        <a data-toggle="tab" href="/users_auth/delete_profile/">
+          Delete Profile
+        </a>
+      </li>
+
+      <li>
+
+        <a data-toggle="tab" href="/users_auth/view_projects/">
+         Projects
+        </a>
+      </li>
+
+      <li>
+        <a data-toggle="tab" href="/users_auth/view_donations/">
+          Donations
+        </a>
+      </li>
+    </ul>
+  </div>
+    <div class="tab-content no-border padding-24">
+      <div id="home" class="tab-pane in active">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 center">
+            <span class="profile-picture">
+              <img class="editable img-responsive " alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">
+            </span>
+            </div>
+            </div>
+            </div>
+            </div>
+           <div class="container wrap">
+              <div class="row">
+                  <div class="col-xs-12 col-md-6 ">
+                      <div class="well well-sm">
+                          <div class="row">
+                              <div class="col-sm-4 col-md-6 col-lg-9">
+                                {% if person.picture %}
+
+                                <img class="editable img-responsive img-rounded img-responsive" alt=" Avatar" id="avatar2" src="/media/{{ person.picture }}" >
+                                  {% else %}
+                                   <img class="editable img-responsive img-rounded img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">
+                                  {% endif %}
+                              </div>
+                              <div class="col-sm-8 col-md-6 col-lg-9">
+                                  <h4>{{ person.first_name }} {{ person.last_name }}</h4>
+                                  <small><cite title="{{ person.country }}">{{ person.country }} <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+                                  <p>
+                                      <i class="glyphicon glyphicon-envelope"></i>{{ person.email }}
+                                      <br />
+                                      <i class="glyphicon glyphicon- "></i><a href="{{ person.faceboo_link }}">{{ person.faceboo_link }}</a>
+                                      <br />
+                                      <i class="glyphicon glyphicon-gift"></i>{{ person.date_birth }}
+                                      <br />
+                                      <i class="glyphicon glyphicon-phone"></i>{{ person.us_phone }}
+                                  </p>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+          
+         
+          </div>
+        
+
+
+
+
+  
+
+{% endblock %}

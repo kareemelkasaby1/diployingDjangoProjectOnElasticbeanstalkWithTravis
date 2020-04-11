@@ -1,0 +1,37 @@
+<!-- Default form register -->
+{% extends "Project/index.html" %}
+{% load bootstrap4 %}
+{% bootstrap_messages %}
+
+{% block title %}Delete Your Porfile{% endblock %}
+{% block profile %}current-menu-item{% endblock %}
+{%block page_name %}Hate to see you go{% endblock %}
+
+
+{% block body %}
+    <form class="text-center border border-light p-5" method="post" action="/users_auth/delete_profile/">
+        {% csrf_token %}
+        <h1>Do you want to delete your account ?</h1>
+
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>        
+          {% endif %}
+
+        <input type="password" name="password" class="form-control"
+               placeholder="Password" title="" required="" style="width: 20em; display:block; margin : 0 auto; margin-bottom: 10px;">
+
+
+                        <div align="center">
+
+            <button  value="yes" class="btn btn-orange">Yes</button>
+            <a class="btn btn-orange"  href="/users_auth/user_profile/">Cancel</a>
+            </div>
+      
+    <!--   {{ form.as_p }}-->
+
+    </form>
+
+{% endblock %}
+<!-- Default form register -->

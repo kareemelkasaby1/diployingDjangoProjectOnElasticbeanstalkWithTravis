@@ -1,0 +1,134 @@
+{% extends "Project/index.html" %}
+{% load bootstrap4 %}
+{% bootstrap_messages %}
+{% block title %}Add Project{% endblock %}
+{%block page_name %}Projects{% endblock %}
+{% block projects %}current-menu-item{% endblock %}
+
+{% block body %}
+<div class="featured-cause" style="width: 100%;">
+    <div class="container">
+
+        {%for project in projects %}
+        {% if  forloop.counter0|divisibleby:2 %}
+        <div class="row">
+            {% endif %}
+            <div class="col-12 col-lg-6">
+                <div class="cause-wrap d-flex flex-wrap justify-content-between"
+                    style="width: 550px;text-align: center; height:312px;">
+
+                    <div class="cause-content-wrap">
+                        <div>
+                            <header class="entry-header d-flex flex-wrap align-items-center">
+                                <h3 class="entry-title w-100 m-0"><a href="#">{{project.title}}</a></h3>
+
+                                <div class="posted-date">
+                                    <a href="#"> {{ project.startdate|date:"D d M Y" }}</a>
+                                </div><!-- .posted-date -->
+
+                                <div class="posted-date" class="homeDetailsFont">
+                                    <a href="#">{{ project.enddate|date:"D d M Y" }}</a>
+                                </div><!-- .cats-links -->
+                                {% if project.featured %}
+                                <div class="posted-date" class="homeDetailsFont">
+                                    <a href="#" style="color: green;font-weight: bold;">Featured</a>
+                                </div><!-- .cats-links -->
+                                {% else %}
+                                <div class="posted-date" class="homeDetailsFont">
+                                    <a href="#" style="color: #F05731;font-weight: bold;">Not Featured</a>
+                                </div><!-- .cats-links -->
+                                {% endif %}
+                            </header><!-- .entry-header -->
+                        </div>
+                        <div class="cats-links homeDetailsFont" style="height: 70%; box-sizing: initial;">
+                            <p class="m-0" style="overflow: scroll; height: 70px;">{{ project.details }}</p>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-footer mt-5" style="height: 60px; margin-top: 10px !important;">
+                            {% if project.startdate <= project.today and project.enddate > project.today %}
+                            {% if project.user == userID %}
+                            <a href="/project/{{ project.id }}/details" class="btn gradient-bg mr-2"
+                                style="width: 500px;text-align: center; font-size: 18px; font-weight: bold;border-radius: 30px;">Donate
+                                for Yourself Now</a>
+                            {% else %}
+                            <a href="/project/{{ project.id }}/details" class="btn gradient-bg mr-2"
+                                style="width: 500px;text-align: center; font-size: 18px; font-weight: bold;border-radius: 30px;">Donate
+                                Now</a>
+                            {% endif %}
+                            {% elif project.enddate <= project.today %}
+                            <a href="/project/{{ project.id }}/details" class="btn gradient-bg mr-2"
+                                style="width: 500px;text-align: center; font-size: 18px; font-weight: bold;border-radius: 30px; justify-content: center; display: flex;">Sorry,
+                                You can only see details, project is Ended</a>
+                            {% elif project.startdate >= project.today %}
+                            <a href="/project/{{ project.id }}/details" class="btn gradient-bg mr-2"
+                                style="width: 500px;text-align: center; font-size: 16.3px; font-weight: bold;border-radius: 30px; justify-content: center; display: flex;">Sorry,
+                                You can only see details, project is does not Started</a>
+                            {% endif %}
+                        </div><!-- .entry-footer -->
+                    </div><!-- .cause-content-wrap -->
+                    <div class="fund-raised w-100">
+                        <!-- .fund-raised-bar -->
+
+                        <div class="fund-raised-details d-fle x flex-wrap justify-content-between align-items-center">
+                            <div class="row">
+                                <div class="fund-raised-total mt-4 col-12 col-lg-6">
+
+                                    {% for rate in rates %}
+                                    {% if rate.prj_id == project.id and rate %}
+                                    Raised:${{ rate.rate__sum }}
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if project.flag == False %}
+                                    Raised:$0
+                                    {% endif %}
+
+                                </div><!-- .fund-raised-total -->
+
+                                <div class="fund-raised-goal mt-4 col-12 col-lg-6">
+                                    Goal: ${{ project.totaltarget }}
+
+                                </div><!-- .fund-raised-goal -->
+                            </div>
+                        </div><!-- .fund-raised-details -->
+                    </div><!-- .fund-raised -->
+                </div><!-- .cause-wrap -->
+            </div><!-- .col -->
+
+            {% if forloop.counter|divisibleby:2 %}
+        </div><!-- .row -->
+        {% endif %}
+        {% endfor %}
+    </div><!-- .container -->
+    <div class="pagination"
+        style="width: 100%; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+        <span class="step-links">
+            <div style="float: left;">
+                {% if projects.has_previous %}
+                <a href="?page=1" style="font-size: 15px;">&laquo; first</a>
+                <a href="?page={{ projects.previous_page_number }}" style="font-size: 15px;">previous</a>
+                {% endif %}
+            </div>
+            <div style="float: left; padding-right: 15px;">
+                <span class="current">
+                    <p>
+                        Page
+                        <span style="color: #F05731">{{ projects.number }}</span>
+                        of {{ projects.paginator.num_pages }}
+                    </p>
+                </span>
+            </div>
+
+            {% if projects.has_next %}
+            <a href="?page={{ projects.next_page_number }}" style="font-size: 15px;">next</a>
+            <a href="?page={{ projects.paginator.num_pages }}" style="font-size: 15px;">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div><!-- .featured-cause -->
+
+
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}
