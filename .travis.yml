@@ -20,7 +20,7 @@ after_sucess:
 
 deploy:
     provider: elasticbeanstalk
-    region: "us-east-1"
+    region: "us-west-2"
     app: "django-project"
     env: "django-project-env"
     bucket_name: "elasticbeanstalk-us-west-2-672223761426"
