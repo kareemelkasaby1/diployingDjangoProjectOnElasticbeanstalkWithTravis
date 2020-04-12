@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   crowd_funding_webapp:
-    build: ./Crowd_Funding_Webapp
+    build: ./crowd_funding_webapp
     expose:
       - "8000"
   nginx:
