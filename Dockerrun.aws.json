@@ -24,7 +24,6 @@
                   "containerPort": 80
                 }
               ],
-            "links": ["crowdfundingwebapp"],
             "essential": true
         }
     ]
