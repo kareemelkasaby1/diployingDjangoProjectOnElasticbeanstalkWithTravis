@@ -8,7 +8,7 @@
             "memory": 128,
             "Ports": [
                 {
-                    "ContainerPort": "8000"
+                    "ContainerPort": 8000
                 }
             ],
             "essential": false
