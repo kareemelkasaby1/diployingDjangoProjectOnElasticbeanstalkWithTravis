@@ -33,3 +33,7 @@ override.tf.json
 terraform.rc
 
 creds
+
+bucket.txt
+
+terraform.pem

@@ -5,7 +5,7 @@ cd /home/elkasaby/Desktop/Desktop/ITI/django/diployinDjangoProject
 ~/.local/bin/aws s3 ls > bucket.txt
 
 
-bucketName=$(awk '$3 ~ /elasticbeanstalk/ {print $3}' bucket.txt)
+bucketName=$(awk '$3 ~ /elasticbeanstalk-us-west/ {print $3}' bucket.txt)
 
 if [ -z "$bucketName" ]
 then
