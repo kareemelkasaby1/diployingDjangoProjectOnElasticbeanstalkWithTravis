@@ -6,12 +6,6 @@
             "image": "kareemelkasaby/crowd_funding_webapp",
             "hostname": "crowdfundingwebapp",
             "memory": 128,
-            "portMappings": [
-                {
-                  "hostPort": 8000,
-                  "containerPort": 8000
-                }
-            ],
             "essential": false
         },
         {
