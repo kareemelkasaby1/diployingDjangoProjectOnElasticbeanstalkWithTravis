@@ -4,14 +4,14 @@
         {
             "name": "crowdfundingwebapp",
             "image": "kareemelkasaby/crowd_funding_webapp",
-            "hostname": "crowdfundingwebapp",
+            "hostname": "crowd-funding-webapp",
             "memory": 128,
             "essential": false
         },
         {
             "name": "djangoprojectnginx",
             "image": "kareemelkasaby/django_project_nginx",
-            "hostname": "djangoprojectnginx",
+            "hostname": "nginx",
             "memory": 128,
             "portMappings": [
                 {
