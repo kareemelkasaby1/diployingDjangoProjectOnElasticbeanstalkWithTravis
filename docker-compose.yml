@@ -9,5 +9,5 @@ services:
     restart: always
     build: ./nginx
     ports:
-      - '3306:80'
+      - '80:80'
   
