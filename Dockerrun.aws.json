@@ -1,0 +1,26 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name": "crowd_funding_webapp",
+            "image": "kareemelkasaby/crowd_funding_webapp",
+            "hostname": "crowd_funding_webapp",
+            "memory": 128,
+            "essential": false
+        },
+        {
+            "name": "django_project_nginx",
+            "image": "kareemelkasaby/django_project_nginx",
+            "hostname": "django_project_nginx",
+            "memory": 128,
+            "portMappings": [
+                {
+                  "hostPort": 80,
+                  "containerPort": 80
+                }
+              ],
+            "links": ["crowd_funding_webapp"],
+            "essential": true
+        }
+    ]
+}

@@ -4,7 +4,7 @@ services:
   - docker
 
 berfore_install:
-  - ls
+  - echo beforeInstall
 
 script:
   - echo "Leeeh ya nosa tedrabe loza"
@@ -17,3 +17,16 @@ after_sucess:
 
   - docker push kareemelkasaby/crowd_funding_webapp
   - docker push kareemelkasaby/django_project_nginx
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "django-project"
+    env: "django-project-env"
+    bucket_name: "elasticbeanstalk-us-west-2-672223761426"
+    bucket_path: "django-project"
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: "$AWS_SECRET_ACCESS_KEY"
