@@ -22,7 +22,7 @@ deploy:
     provider: elasticbeanstalk
     region: "us-west-2"
     app: "django-project"
-    env: "django-project-env"
+    env: "DjangoProject-env"
     bucket_name: "elasticbeanstalk-us-west-2-672223761426"
     bucket_path: "django-project"
     on:
