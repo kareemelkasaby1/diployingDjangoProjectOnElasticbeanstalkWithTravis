@@ -127,6 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATICFILES_DIR = '/djangoApp/Project/static/'
+# STATIC_ROOT = '/djangoApp/Project/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 EMAIL_USE_TLS = True
