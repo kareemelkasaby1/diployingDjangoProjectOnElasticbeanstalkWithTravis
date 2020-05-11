@@ -2,12 +2,15 @@ version: '3'
 
 services: 
   crowd-funding-webapp:
-    image: kareemelkasaby/crowd_funding_webapp
+    build: ./crowd-funding-webapp
+    command: gunicorn fund.wsgi:application --bind 0.0.0.0:8000
+    # env_file:
+    #   - ./.env.dev
     expose:
       - "8000"
   nginx:
     restart: always
-    image: kareemelkasaby/django_project_nginx
+    build: ./nginx
     ports:
       - '80:80'
   
