@@ -10,7 +10,7 @@ script:
   - echo "Leeeh ya nosa tedrabe loza"
 
 after_sucess:
-  - docker build -t kareemelkasaby/crowd_funding_webapp ./crowd_funding_webapp
+  - docker build -t kareemelkasaby/crowd_funding_webapp ./crowd-funding-webapp
   - docker build -t kareemelkasaby/django_project_nginx ./nginx
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin

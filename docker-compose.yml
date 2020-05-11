@@ -2,12 +2,12 @@ version: '3'
 
 services: 
   crowd-funding-webapp:
-    build: ./crowd-funding-webapp
+    image: kareemelkasaby/crowd_funding_webapp
     expose:
       - "8000"
   nginx:
     restart: always
-    build: ./nginx
+    image: kareemelkasaby/django_project_nginx
     ports:
       - '80:80'
   
