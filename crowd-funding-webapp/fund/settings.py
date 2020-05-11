@@ -29,7 +29,7 @@ SECRET_KEY = 'qu1_s&^a(7zgapte1=@!-oz4225p@f*7!hc+_reze-&z^^10+_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.223.226.158','http://34.223.226.158/']
+ALLOWED_HOSTS = ['34.223.226.158','http://34.223.226.158/','127.0.0.1', 'localhost']
 
 
 # Application definition
