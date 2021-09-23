@@ -1,5 +1,5 @@
 ajaxuploader==0.3.8
-ansible==2.9.6
+ansible==4.2.0
 asgiref==3.2.6
 beautifulsoup4==4.8.2
 bootstrap4==0.1.0
